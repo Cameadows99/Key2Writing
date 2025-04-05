@@ -1,38 +1,109 @@
-.App {
+body, .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 100vh; /* Full height of the viewport */
+  background-position: center;
+  transition: 0.3s ease-in-out; /* Smooth transition */
+  background-size: cover;
+}
+.piano {
+  position: fixed;
+
+  rotate: 270deg;
+  left: -315px;
+  top: 330px;
+  opacity: 50%;
 }
 
-.App-link {
-  color: #61dafb;
+.header-light{
+  padding-top: 50px;
+  font-family: 'papyrus';
+  font-style: italic;
+  font-weight: bolder;
+  font-size: 50px;
+  color: #db7093;
+  text-shadow: 4px 4px rgb(224, 224, 224), 5px 5px 5px rgb(69, 212, 188);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header-dark {
+  padding-top:35px;
+  font-family: 'papyrus';
+  font-style: italic;
+  font-weight: lighter;
+  font-size: 50px;
+  color: #313131;
+  text-shadow: 2px 2px rgb(221, 143, 42), 1px 1px gray;
+}
+
+.songSelector {
+  position: fixed; /* Fix the position relative to the viewport */
+  top: 20px;
+  right: 20px;
+}
+
+.instrument-selector {
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  padding-top: 20px;
+}
+
+.display-current-song {
+  position: fixed; /* Fix the position relative to the viewport */
+  bottom: 20px; /* Place it at the top-left corner */
+  right: 20px;
+  padding-top: 13px;
+}
+
+.document-container {
+  width: 100%; /* Ensure full width */
+  max-width: 900px; /* Optional: restrict max width */
+  height: 80vh; /* Take up most of the screen height */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+:root {
+  --doc-font-size: 20px;
+}
+
+:root {
+  --textarea-bg: url('/public/assets/text-box-image-light.jpg');
+}
+:root {
+  --doc-align: left;
+}
+.document-text {
+  width: 100vh; /* Adjust width for a document-like layout */
+  height: 60vh; /* Adjust height */
+  font-size: var(--doc-font-size);
+  padding: 8px; /* Add padding */
+  border: 4px solid #a19595;
+  border-radius: 20px;
+  resize: both;
+  box-sizing: border-box; /* Ensures width includes border */
+  text-align: var(--doc-align);
+
+  margin: 0 auto;
+
+  background: var(--textarea-bg) no-repeat center center;
+  background-size: cover;
+}
+
+
+.selection {
+  margin:auto;
+
+}
+
+select {
+  font-family: 'papyrus';
+  font-style: italic;
+  border: 4px solid #020202;
+  border-radius: 15px;
+  background-color: #cabebe;
+  text-decoration: underline;
 }

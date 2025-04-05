@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import React, { useState, useEffect} from 'react';
+import {Piano, MidiNumbers} from 'react-piano';
+import {songs} from './components/music/Songs';
+import Document from './components/Document';
 import './App.css';
+import SongSelector from './components/SongSelector';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+export default function PianoApp() {
+  const firstNote = MidiNumbers.fromNote('A0');
+  const lastNote = MidiNumbers.fromNote('C8');
+  const notesInRange = Array.from(
+    { length: lastNote - firstNote + 1 }, // Create an array with the correct length
+    (_, index) => firstNote + index // Fill the array with the notes
   );
+  
+  useEffect(() => {
+    console.log(notesInRange)
+  }, []);
+
+
+
+    return (
+      <>
+      <Document />
+      </>
+    )
 }
 
-export default App;
+
