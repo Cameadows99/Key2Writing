@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { songs } from "./music/Songs";
 
 export default function SongSelector({ songPlaying, setSongPlaying }) {
