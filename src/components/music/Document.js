@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from "react";
-import MidiNotes from "./music/MidiNotes";
 import SongSelector from "./SongSelector";
 import SoundfontPlayer, { instrument } from "soundfont-player";
 import instruments from "./music/instruments.json";
 import { Piano, MidiNumbers } from "react-piano";
 import InstrumentSelector from "./InstrumentSelector";
 import "react-piano/dist/styles.css";
-import { songs } from "./music/Songs";
 
 export default function Document() {
   const [theme, setTheme] = useState("light");
   const [audioContext, setAudioContext] = useState(null);
-  const [songPlaying, setSongPlaying] = useState(
-    songs.find((song) => song.title === "Fur Elise")
-  );
-  const [instrumentType, setInstrumentType] = useState("Piano");
+  const [songPlaying, setSongPlaying] = useState("Fur Elise");
+  const [instrumentType, setInstrumentType] = useState("Keys");
   const [selectedInstrument, setSelectedInstrument] = useState(
     instruments.Keys[0]
   );
