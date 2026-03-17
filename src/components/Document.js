@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import MidiNotes from "./music/MidiNotes";
+import { useState, useEffect } from "react";
 import SongSelector from "./SongSelector";
-import SoundfontPlayer, { instrument } from "soundfont-player";
+import SoundfontPlayer from "soundfont-player";
 import instruments from "./music/instruments.json";
 import { Piano, MidiNumbers } from "react-piano";
 import InstrumentSelector from "./InstrumentSelector";
@@ -12,15 +11,15 @@ export default function Document() {
   const [theme, setTheme] = useState("light");
   const [audioContext, setAudioContext] = useState(null);
   const [songPlaying, setSongPlaying] = useState(
-    songs.find((song) => song.title === "Fur Elise")
+    songs.find((song) => song.title === "Fur Elise"),
   );
   const [instrumentType, setInstrumentType] = useState("Piano");
   const [selectedInstrument, setSelectedInstrument] = useState(
-    instruments.Keys[0]
+    instruments.Keys[0],
   );
   const [noteIndex, setNoteIndex] = useState(0);
   const [player, setPlayer] = useState(null);
-  const [textAlign, setTextAlign] = useState("left");
+  const [setTextAlign] = useState("left");
   let noteTimeout;
   const selectionLight = {
     color: "#db7093",
@@ -54,7 +53,7 @@ export default function Document() {
       Array.from(selections).forEach((element) => {
         Object.assign(
           element.style,
-          theme === "light" ? selectionLight : selectionDark
+          theme === "light" ? selectionLight : selectionDark,
         );
       });
     }
@@ -67,7 +66,7 @@ export default function Document() {
       "--textarea-bg",
       theme === "light"
         ? "url('/assets/text-box-image-light.jpg')"
-        : "url('/assets/dark-text.jpg')"
+        : "url('/assets/dark-text.jpg')",
     );
   });
 
@@ -81,7 +80,7 @@ export default function Document() {
       SoundfontPlayer.instrument(audioContext, selectedInstrument).then(
         (piano) => {
           setPlayer(piano);
-        }
+        },
       );
     }
   }, [audioContext, selectedInstrument]);

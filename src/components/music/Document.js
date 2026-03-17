@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import SongSelector from "./SongSelector";
-import SoundfontPlayer, { instrument } from "soundfont-player";
+import SoundfontPlayer from "soundfont-player";
 import instruments from "./music/instruments.json";
 import { Piano, MidiNumbers } from "react-piano";
 import InstrumentSelector from "./InstrumentSelector";
@@ -12,11 +12,11 @@ export default function Document() {
   const [songPlaying, setSongPlaying] = useState("Fur Elise");
   const [instrumentType, setInstrumentType] = useState("Keys");
   const [selectedInstrument, setSelectedInstrument] = useState(
-    instruments.Keys[0]
+    instruments.Keys[0],
   );
   const [noteIndex, setNoteIndex] = useState(0);
   const [player, setPlayer] = useState(null);
-  const [textAlign, setTextAlign] = useState("left");
+  const [setTextAlign] = useState("left");
   let noteTimeout;
   const selectionLight = {
     color: "#db7093",
@@ -50,7 +50,7 @@ export default function Document() {
       Array.from(selections).forEach((element) => {
         Object.assign(
           element.style,
-          theme === "light" ? selectionLight : selectionDark
+          theme === "light" ? selectionLight : selectionDark,
         );
       });
     }
@@ -63,7 +63,7 @@ export default function Document() {
       "--textarea-bg",
       theme === "light"
         ? "url('/assets/text-box-image-light.jpg')"
-        : "url('/assets/dark-text.jpg')"
+        : "url('/assets/dark-text.jpg')",
     );
   });
 
@@ -77,7 +77,7 @@ export default function Document() {
       SoundfontPlayer.instrument(audioContext, selectedInstrument).then(
         (piano) => {
           setPlayer(piano);
-        }
+        },
       );
     }
   }, [audioContext, selectedInstrument]);
@@ -87,21 +87,6 @@ export default function Document() {
       player.play(note);
       console.log("playing note:", note);
     }
-  };
-
-  const playSong = (song) => {
-    const playNextNote = () => {
-      let currentNote = 0;
-      if (currentNote < song.notes.length) {
-        let note = song.notes[currentNote];
-        playNote(currentNote);
-        setNoteIndex(currentNote + 1);
-        noteTimeout = setTimeout(playNextNote, 400);
-      } else {
-        setNoteIndex(0);
-      }
-    };
-    playNextNote();
   };
 
   const handleChangeTheme = (e) => {
