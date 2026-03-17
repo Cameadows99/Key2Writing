@@ -92,20 +92,20 @@ export default function Document() {
     }
   };
 
-  const playSong = (song) => {
-    const playNextNote = () => {
-      let currentNote = 0;
-      if (currentNote < song.notes.length) {
-        let note = song.notes[currentNote];
-        playNote(currentNote);
-        setNoteIndex(currentNote + 1);
-        noteTimeout = setTimeout(playNextNote, 400);
-      } else {
-        setNoteIndex(0);
-      }
-    };
-    playNextNote();
-  };
+  // const playSong = (song) => {
+  //   const playNextNote = () => {
+  //     let currentNote = 0;
+  //     if (currentNote < song.notes.length) {
+  //       // let note = song.notes[currentNote];
+  //       playNote(currentNote);
+  //       setNoteIndex(currentNote + 1);
+  //       noteTimeout = setTimeout(playNextNote, 400);
+  //     } else {
+  //       setNoteIndex(0);
+  //     }
+  //   };
+  //   playNextNote();
+  // };
 
   const handleChangeTheme = (e) => {
     setTheme(e.target.value);
@@ -115,7 +115,7 @@ export default function Document() {
     if (songPlaying && noteIndex < songPlaying.notes.length) {
       if (noteTimeout) clearTimeout(noteTimeout);
       noteTimeout = setTimeout(() => {
-        const note = songPlaying.notes[noteIndex];
+        // const note = songPlaying.notes[noteIndex];
         // playNote(note);
         setNoteIndex(noteIndex + 1);
       }, 120);

@@ -97,8 +97,8 @@ export default function Document() {
     if (songPlaying && noteIndex < songPlaying.notes.length) {
       if (noteTimeout) clearTimeout(noteTimeout);
       noteTimeout = setTimeout(() => {
-        // const note = songPlaying.notes[noteIndex];
-        // // playNote(note);
+        const note = songPlaying.notes[noteIndex];
+        // playNote(note);
         setNoteIndex(noteIndex + 1);
       }, 120);
     } else {
