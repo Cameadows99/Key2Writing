@@ -1,4 +1,5 @@
-body, .App {
+body,
+.App {
   text-align: center;
   position: relative;
   display: flex;
@@ -18,24 +19,28 @@ body, .App {
   opacity: 50%;
 }
 
-.header-light{
+.header-light {
   padding-top: 50px;
-  font-family: 'papyrus';
+  font-family: "papyrus";
   font-style: italic;
   font-weight: bolder;
   font-size: 50px;
   color: #db7093;
-  text-shadow: 4px 4px rgb(224, 224, 224), 5px 5px 5px rgb(69, 212, 188);
+  text-shadow:
+    4px 4px rgb(224, 224, 224),
+    5px 5px 5px rgb(69, 212, 188);
 }
 
 .header-dark {
-  padding-top:35px;
-  font-family: 'papyrus';
+  padding-top: 35px;
+  font-family: "papyrus";
   font-style: italic;
   font-weight: lighter;
   font-size: 50px;
   color: #313131;
-  text-shadow: 2px 2px rgb(221, 143, 42), 1px 1px gray;
+  text-shadow:
+    2px 2px rgb(221, 143, 42),
+    1px 1px gray;
 }
 
 .songSelector {
@@ -52,39 +57,39 @@ body, .App {
 }
 
 .display-current-song {
-  position: fixed; /* Fix the position relative to the viewport */
-  bottom: 20px; /* Place it at the top-left corner */
+  position: fixed;
+  bottom: 20px;
   right: 20px;
   padding-top: 13px;
 }
 
 .document-container {
-  width: 100%; /* Ensure full width */
-  max-width: 900px; /* Optional: restrict max width */
-  height: 80vh; /* Take up most of the screen height */
+  width: 100%;
+  max-width: 900px;
+  height: 80vh;
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  align-items: center;
 }
 :root {
   --doc-font-size: 20px;
 }
 
 :root {
-  --textarea-bg: url('/public/assets/text-box-image-light.jpg');
+  --textarea-bg: url("/public/assets/text-box-image-light.jpg");
 }
 :root {
   --doc-align: left;
 }
 .document-text {
-  width: 100vh; /* Adjust width for a document-like layout */
-  height: 60vh; /* Adjust height */
+  width: 100vh;
+  height: 60vh;
   font-size: var(--doc-font-size);
-  padding: 8px; /* Add padding */
+  padding: 8px;
   border: 4px solid #a19595;
   border-radius: 20px;
   resize: both;
-  box-sizing: border-box; /* Ensures width includes border */
+  box-sizing: border-box;
   text-align: var(--doc-align);
 
   margin: 0 auto;
@@ -93,14 +98,12 @@ body, .App {
   background-size: cover;
 }
 
-
 .selection {
-  margin:auto;
-
+  margin: auto;
 }
 
 select {
-  font-family: 'papyrus';
+  font-family: "papyrus";
   font-style: italic;
   border: 4px solid #020202;
   border-radius: 15px;
